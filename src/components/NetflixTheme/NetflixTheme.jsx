@@ -12,10 +12,11 @@ const NetflixTheme = ({ data }) => {
                 title={data.title}
                 subtitle={data.subtitle}
             />
-            <Row title="Estatísticas do Mês" items={data.metrics} />
-            <DashboardSection />
+            <div className="content-layer">
+                <Row title="Estatísticas do Mês" items={data.metrics} />
+                <DashboardSection />
+            </div>
         </div>
-        </div >
     );
 };
 
