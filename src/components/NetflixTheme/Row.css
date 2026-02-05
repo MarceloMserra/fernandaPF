@@ -16,12 +16,26 @@
 }
 
 .row-container {
-    overflow-x: visible;
+    overflow-x: aut0;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 0;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+.row-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
 .row-slider {
     display: flex;
     gap: 10px;
-    padding: 20px 0;
-    /* Space for hover expansion */
+    /* padding removed here as it's moved to container to allow hover expansion without cut-off if possible, 
+     but with overflow:auto we need padding inside to not cut off shadows. */
+    padding: 10px;
 }
