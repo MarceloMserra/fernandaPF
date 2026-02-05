@@ -1,7 +1,7 @@
 .netflix-container {
     min-height: 100vh;
     /* Cinematic Background */
-    background: url('/netflix-bg.png') no-repeat center center fixed;
+    background: url('/background-collage.png') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     overflow-x: hidden;
