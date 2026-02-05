@@ -1,5 +1,6 @@
 .hero {
-    height: 85vh;
+    height: 65vh;
+    /* Reduced from 85vh to pull everything up */
     position: relative;
     color: white;
     display: flex;
@@ -7,20 +8,32 @@
     padding-left: 4%;
 }
 
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 70% 30%, #441111 0%, #000 80%);
-    z-index: -1;
-}
+/* ... existing background code ... */
 
 .hero-content {
     width: 40%;
     z-index: 10;
-    margin-top: 100px;
+    margin-top: 0;
+    /* Removed the 100px margin that pushed it down */
+}
+
+/* ... existing code ... */
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding-top: 80px;
+        /* Reduced padding */
+        padding-right: 4%;
+    }
+
+    /* ... */
+
+    .hero {
+        min-height: 60vh;
+        /* Reduced mobile height too */
+        padding-bottom: 30px;
+        align-items: flex-start;
+    }
 }
 
 .hero-title {
@@ -96,7 +109,7 @@
     .hero-content {
         width: 100%;
         margin-top: 0;
-        padding-top: 100px;
+        padding-top: 80px;
         padding-right: 4%;
     }
 
@@ -111,8 +124,8 @@
 
     .hero {
         height: auto;
-        min-height: 80vh;
-        padding-bottom: 50px;
+        min-height: 60vh;
+        padding-bottom: 30px;
         align-items: flex-start;
     }
 }
