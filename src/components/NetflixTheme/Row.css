@@ -1,0 +1,27 @@
+.row {
+    padding: 0 4%;
+    margin-bottom: 50px;
+}
+
+.row-title {
+    font-size: 1.5rem;
+    color: #e5e5e5;
+    margin-bottom: 20px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.row-title:hover {
+    color: white;
+}
+
+.row-container {
+    overflow-x: visible;
+}
+
+.row-slider {
+    display: flex;
+    gap: 10px;
+    padding: 20px 0;
+    /* Space for hover expansion */
+}

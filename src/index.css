@@ -1,0 +1,38 @@
+:root {
+  --netflix-black: #141414;
+  --netflix-red: #E50914;
+  --netflix-dark-red: #B81D24;
+  --netflix-white: #ffffff;
+  --netflix-gray: #e5e5e5;
+  --netflix-dark-gray: #181818; 
+  --font-base: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--netflix-black);
+  color: var(--netflix-white);
+  font-family: var(--font-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--netflix-black); 
+}
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+* {
+  box-sizing: border-box;
+}

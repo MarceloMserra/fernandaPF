@@ -1,0 +1,18 @@
+.netflix-container {
+    min-height: 100vh;
+    background-color: var(--netflix-black);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.content-layer {
+    position: relative;
+    z-index: 10;
+    margin-top: -150px;
+    /* Overlap with Hero like Netflix */
+    padding-bottom: 50px;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            var(--netflix-black) 10%,
+            var(--netflix-black) 100%);
+}
