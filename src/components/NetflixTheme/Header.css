@@ -64,3 +64,17 @@
     justify-content: center;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .header {
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-right: 0;
+    }
+}

@@ -16,3 +16,9 @@
             var(--netflix-black) 10%,
             var(--netflix-black) 100%);
 }
+
+@media (max-width: 768px) {
+    .content-layer {
+        margin-top: -50px;
+    }
+}
