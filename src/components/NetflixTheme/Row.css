@@ -16,7 +16,7 @@
 }
 
 .row-container {
-    overflow-x: aut0;
+    overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     padding: 20px 0;
