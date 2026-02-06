@@ -27,21 +27,21 @@
     }
 
     .chart-card {
-        /* Glassmorphism for Charts */
-        background: rgba(20, 20, 20, 0.6);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-
+        /* Premium Glassmorphism matching the cards */
+        background: rgba(30, 30, 30, 0.6);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
-        padding: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 25px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .chart-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        border-color: #555;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.2);
         z-index: 5;
     }
 

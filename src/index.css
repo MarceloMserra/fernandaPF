@@ -5,6 +5,7 @@
   --netflix-white: #ffffff;
   --netflix-gray: #e5e5e5;
   --netflix-dark-gray: #181818;
+  --netflix-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   --font-base: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
