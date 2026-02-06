@@ -267,9 +267,19 @@ const Editor = ({ data, onSave, onCancel }) => {
 
             {/* --- ACTIONS --- */}
             <div style={styles.actionButtons}>
+                <button
+                    style={{ ...styles.button, background: '#333', color: '#fff', marginRight: 'auto' }}
+                    onClick={() => {
+                        const json = JSON.stringify(formData, null, 2);
+                        navigator.clipboard.writeText(json);
+                        alert("Configuração copiada! Cole no chat para eu atualizar o site oficial.");
+                    }}
+                >
+                    📋 Copiar para IA
+                </button>
                 <button style={{ ...styles.button, ...styles.btnSecondary }} onClick={onCancel}>Cancelar</button>
                 <button style={{ ...styles.button, ...styles.btnPrimary }} onClick={() => onSave(formData)}>
-                    <Save size={20} /> Salvar Tudo
+                    <Save size={20} /> Salvar Localmente
                 </button>
             </div>
         </div>
