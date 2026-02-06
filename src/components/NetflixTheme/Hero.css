@@ -54,6 +54,7 @@
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     /* Premium text gradient */
     background: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0;
