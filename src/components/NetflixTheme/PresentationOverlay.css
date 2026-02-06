@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;800&family=Playfair+Display:ital,wght@1,400&display=swap');
 
 .presentation-overlay {
     position: fixed;
@@ -6,30 +6,42 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #050505;
+    background-color: #000;
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #e0e0e0;
-    font-family: 'Share Tech Mono', monospace;
-    /* Tech font */
+    color: #fff;
+    font-family: 'Inter', sans-serif;
     overflow: hidden;
+    touch-action: none;
 }
 
-.noise-bg {
+/* 1. Ambient Background (Lava Lamp) */
+.ambient-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    pointer-events: none;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 70%);
+    opacity: 1;
     z-index: 0;
+    animation: pulseBg 10s ease-in-out infinite alternate;
 }
 
-.scene {
+@keyframes pulseBg {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Layout */
+.content-container {
     z-index: 10;
     width: 100%;
     height: 100%;
@@ -37,155 +49,208 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: fadeIn slow 1.5s ease-out forwards;
 }
 
-/* Boot Scene */
-.terminal-text p {
-    color: #00f2ff;
-    font-size: 1.2rem;
-    margin: 5px 0;
-    opacity: 0;
-    animation: typeIn 0.5s forwards;
-}
-
-.terminal-text p:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.terminal-text p:nth-child(2) {
-    animation-delay: 0.8s;
-}
-
-.terminal-text p:nth-child(3) {
-    animation-delay: 1.4s;
-}
-
-.glitch-text {
-    font-size: 5rem;
-    color: #fff;
-    margin-top: 20px;
-    position: relative;
-    opacity: 0;
-    animation: flashIn 0.2s 1.8s forwards;
-}
-
-/* Metrics Scene - HUD Style */
-.hud-metric-container {
-    text-align: center;
-    padding: 40px;
-    border-left: 2px solid #00f2ff;
-    border-right: 2px solid #00f2ff;
-    background: rgba(0, 242, 255, 0.05);
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-}
-
-.hud-line-top,
-.hud-line-bottom {
+/* Close Button */
+.close-btn {
     position: absolute;
-    width: 100%;
-    height: 2px;
-    background: #00f2ff;
-    left: 0;
-}
-
-.hud-line-top {
-    top: 0;
-}
-
-.hud-line-bottom {
-    bottom: 0;
-}
-
-.hud-label {
-    font-size: 2rem;
-    color: #00f2ff;
-    letter-spacing: 4px;
-    margin-bottom: 20px;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 100;
+    font-family: 'Inter', sans-serif;
     text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s;
 }
 
-.hud-value {
-    font-size: 10rem;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 15px #00f2ff;
-    line-height: 0.9;
+.close-btn:hover {
+    background: white;
+    color: black;
 }
 
-.hud-subtext {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    color: #aaa;
+/* Scene 1: Intro */
+.netflix-tag {
+    font-size: 1rem;
+    letter-spacing: 6px;
+    font-weight: 600;
+    color: #E50914;
+    text-transform: uppercase;
+    animation: scaleOut 3s ease-out forwards;
 }
 
-.scan-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.intro-line {
+    width: 0px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.5);
-    animation: scan 2s linear infinite;
-    opacity: 0.5;
+    background: #E50914;
+    margin-top: 10px;
+    animation: growLine 1s ease-out 0.5s forwards;
 }
 
-/* Loading Scene */
-.progress-bar-container {
-    width: 60%;
-    height: 4px;
-    background: #333;
-    margin: 20px 0;
+@keyframes growLine {
+    to {
+        width: 50px;
+    }
 }
 
-.progress-bar {
-    height: 100%;
-    background: #00f2ff;
-    box-shadow: 0 0 10px #00f2ff;
+/* Scene 2: Title */
+.title-content {
+    text-align: center;
 }
 
-/* Chart Scene */
-.hud-chart-frame {
-    width: 90%;
-    height: 70vh;
-    border: 1px solid #333;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    position: relative;
+.cinematic-title {
+    font-size: 6rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom, #fff 40%, #666 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideUp 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.cinematic-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: #888;
+    animation: slideUp 2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+    opacity: 0;
+}
+
+/* Scene 3: Metrics (The Split Layout) */
+.metric-content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+}
+
+.metric-left {
+    text-align: right;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: 40px;
+    height: 200px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-.hud-header,
-.hud-footer {
+.metric-id {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #E50914;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 3.5rem;
+    font-weight: 200;
+    /* Thin */
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -1px;
+    animation: slideRight 0.8s ease-out forwards;
+}
+
+.metric-right {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-number {
+    font-size: 9rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    /* Solid white for punch */
+    animation: slideLeft 0.8s ease-out forwards;
+}
+
+.metric-desc {
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+/* Scene 4: Chart */
+.chart-content {
+    padding: 5%;
+}
+
+.chart-headline {
+    font-size: 2rem;
+    font-weight: 200;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.chart-canvas {
+    width: 80%;
+    height: 60vh;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 0.5s forwards;
+}
+
+.chart-footer {
+    width: 80%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
+    color: #444;
     font-size: 0.8rem;
-    color: #00f2ff;
-    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.hud-footer {
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-.chart-wrapper {
-    flex: 1;
-    border: 1px solid rgba(0, 242, 255, 0.2);
-    /* Sci-fi grid background */
-    background-image:
-        linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
+/* Scene 5: Outro */
+.netflix-n {
+    font-size: 12rem;
+    font-weight: 900;
+    color: #E50914;
+    letter-spacing: -10px;
+    animation: scaleOut 2s ease-in forwards;
 }
 
 /* Animations */
-@keyframes typeIn {
+@keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateX(-10px);
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
     }
 
     to {
@@ -194,7 +259,31 @@
     }
 }
 
-@keyframes flashIn {
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -204,35 +293,45 @@
     }
 }
 
-@keyframes scan {
-    0% {
-        top: 0;
-    }
-
-    100% {
-        top: 100%;
-    }
-}
-
 /* Mobile */
 @media (max-width: 768px) {
-    .hud-value {
+    .cinematic-title {
+        font-size: 3rem;
+    }
+
+    .metric-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .metric-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-right: 0;
+        padding-bottom: 20px;
+        align-items: center;
+        height: auto;
+    }
+
+    .metric-right {
+        height: auto;
+        align-items: center;
+    }
+
+    .metric-number {
         font-size: 5rem;
     }
 
-    .hud-metric-container {
-        width: 95%;
+    .chart-canvas {
+        width: 100%;
+        height: 50vh;
     }
 
-    .hud-label {
-        font-size: 1.2rem;
-    }
-
-    .terminal-text p {
-        font-size: 0.9rem;
-    }
-
-    .glitch-text {
-        font-size: 3rem;
+    .chart-footer {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }
