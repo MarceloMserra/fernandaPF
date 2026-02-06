@@ -1,6 +1,10 @@
 .row {
     padding: 0 4%;
-    margin-bottom: 50px;
+    margin-bottom: -50px;
+    /* Negative margin to counteract the container padding */
+    position: relative;
+    z-index: 20;
+    /* Ensure it stays on top of dashboard section */
 }
 
 .row-title {
@@ -19,7 +23,8 @@
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    padding: 20px 0;
+    padding: 20px 0 150px 0;
+    /* Extra bottom padding for card hover expansion */
     /* Hide scrollbar */
     scrollbar-width: none;
     /* Firefox */

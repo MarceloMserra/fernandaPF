@@ -1,7 +1,7 @@
 .netflix-container {
     min-height: 100vh;
     /* Cinematic Background */
-    background: url('/bg-final.png') no-repeat center center fixed;
+    background: url('/background-collage.png') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     overflow-x: hidden;
@@ -12,8 +12,8 @@
     /* Gradient to blend hero into content, keeping background visible */
     background: linear-gradient(to bottom,
             transparent 0%,
-            rgba(0, 0, 0, 0.8) 15%,
-            rgba(0, 0, 0, 0.6) 100%);
+            rgba(0, 0, 0, 0.4) 15%,
+            rgba(0, 0, 0, 0.4) 100%);
 }
 
 @media (max-width: 768px) {

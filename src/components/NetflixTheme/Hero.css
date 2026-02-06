@@ -14,7 +14,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 70% 30%, rgba(68, 17, 17, 0.4) 0%, rgba(0, 0, 0, 0.6) 80%);
+    background: radial-gradient(circle at 70% 30%, rgba(68, 17, 17, 0.2) 0%, rgba(0, 0, 0, 0.3) 80%);
     z-index: 0;
 }
 
