@@ -1,222 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 .presentation-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #000;
+    background-color: #050505;
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-family: 'Inter', sans-serif;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', monospace;
+    /* Tech font */
+    overflow: hidden;
 }
 
-.close-btn {
+.noise-bg {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    opacity: 0.5;
-    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
 }
 
-.close-btn:hover {
-    opacity: 1;
-}
-
-/* Scenes */
 .scene {
+    z-index: 10;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: fadeInOut 1s ease-in-out;
 }
 
-/* Intro */
-.intro-scene .studio-title {
-    font-size: 5rem;
-    font-weight: 900;
-    letter-spacing: 10px;
-    background: linear-gradient(to right, #E50914, #B81D24);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: scaleUp 4s ease-out forwards;
-}
-
-.intro-scene .presents-text {
-    font-size: 1.5rem;
-    letter-spacing: 5px;
-    margin-top: 20px;
+/* Boot Scene */
+.terminal-text p {
+    color: #00f2ff;
+    font-size: 1.2rem;
+    margin: 5px 0;
     opacity: 0;
-    animation: fadeIn 1s ease 1s forwards;
+    animation: typeIn 0.5s forwards;
+}
+
+.terminal-text p:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.terminal-text p:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.terminal-text p:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+.glitch-text {
+    font-size: 5rem;
+    color: #fff;
+    margin-top: 20px;
+    position: relative;
+    opacity: 0;
+    animation: flashIn 0.2s 1.8s forwards;
+}
+
+/* Metrics Scene - HUD Style */
+.hud-metric-container {
+    text-align: center;
+    padding: 40px;
+    border-left: 2px solid #00f2ff;
+    border-right: 2px solid #00f2ff;
+    background: rgba(0, 242, 255, 0.05);
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+}
+
+.hud-line-top,
+.hud-line-bottom {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #00f2ff;
+    left: 0;
+}
+
+.hud-line-top {
+    top: 0;
+}
+
+.hud-line-bottom {
+    bottom: 0;
+}
+
+.hud-label {
+    font-size: 2rem;
+    color: #00f2ff;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hud-value {
+    font-size: 10rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 15px #00f2ff;
+    line-height: 0.9;
+}
+
+.hud-subtext {
+    font-size: 1.5rem;
+    margin-top: 20px;
     color: #aaa;
 }
 
-/* Metric HighlightRefined */
-.metric-highlight {
-    text-align: center;
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: scan 2s linear infinite;
+    opacity: 0.5;
+}
+
+/* Loading Scene */
+.progress-bar-container {
+    width: 60%;
+    height: 4px;
+    background: #333;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #00f2ff;
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+/* Chart Scene */
+.hud-chart-frame {
+    width: 90%;
+    height: 70vh;
+    border: 1px solid #333;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.metric-label-top {
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    color: #888;
-    text-transform: uppercase;
-    margin-bottom: 0px;
-    opacity: 0.8;
+.hud-header,
+.hud-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #00f2ff;
+    margin-bottom: 10px;
 }
 
-.metric-value {
-    display: block;
-    font-size: 12rem;
-    /* Larger */
-    font-weight: 800;
-    line-height: 1;
-    background: linear-gradient(to bottom, #ffffff, #999);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+.hud-footer {
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
-.metric-subtext {
-    font-size: 2rem;
-    color: #E50914;
-    font-weight: 600;
-    margin-top: 20px;
-    letter-spacing: 1px;
-    max-width: 80%;
-}
-
-/* Cinematic Chart Scene */
-.chart-scene h2 {
-    font-size: 3rem;
-    margin-bottom: 40px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.cinematic-chart-container {
-    width: 80%;
-    height: 60vh;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(20, 20, 20, 0.5);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 20px 40px 20px 0;
-    /* Right padding for labels */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-}
-
-/* Mobile Responsiveness for Presentation */
-@media (max-width: 768px) {
-    .intro-scene .studio-title {
-        font-size: 3rem;
-        letter-spacing: 5px;
-    }
-
-    .metric-value {
-        font-size: 6rem;
-    }
-
-    .metric-label-top {
-        font-size: 1rem;
-    }
-
-    .metric-subtext {
-        font-size: 1.2rem;
-        max-width: 90%;
-    }
-
-    .chart-scene h2 {
-        font-size: 1.5rem;
-    }
-
-    .cinematic-chart-container {
-        width: 95%;
-        height: 50vh;
-        padding: 10px;
-    }
+.chart-wrapper {
+    flex: 1;
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    /* Sci-fi grid background */
+    background-image:
+        linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
 /* Animations */
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes scaleUp {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes popIn {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes growBar {
+@keyframes typeIn {
     from {
-        transform: scaleX(0);
+        opacity: 0;
+        transform: translateX(-10px);
     }
 
     to {
-        transform: scaleX(1);
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flashIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hud-value {
+        font-size: 5rem;
+    }
+
+    .hud-metric-container {
+        width: 95%;
+    }
+
+    .hud-label {
+        font-size: 1.2rem;
+    }
+
+    .terminal-text p {
+        font-size: 0.9rem;
+    }
+
+    .glitch-text {
+        font-size: 3rem;
     }
 }

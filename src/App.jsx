@@ -33,7 +33,23 @@ const INITIAL_DATA = {
 function App() {
   const [data, setData] = useState(() => {
     const saved = localStorage.getItem('superQuintaData');
-    return saved ? JSON.parse(saved) : INITIAL_DATA;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        // Deep merge or at least ensure new keys exist
+        return {
+          ...INITIAL_DATA,
+          ...parsed,
+          // Ensure charts object exists and has data if missing in saved
+          charts: parsed.charts || INITIAL_DATA.charts,
+          metrics: parsed.metrics || INITIAL_DATA.metrics
+        };
+      } catch (e) {
+        console.error("Error parsing saved data, resetting:", e);
+        return INITIAL_DATA;
+      }
+    }
+    return INITIAL_DATA;
   });
 
   const [isEditing, setIsEditing] = useState(false);
