@@ -226,12 +226,43 @@
 }
 
 /* Scene 5: Outro */
-.netflix-n {
-    font-size: 12rem;
+.outro-content {
+    text-align: center;
+}
+
+.outro-text {
+    font-size: 1.5rem;
+    color: #ccc;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin: 5px 0;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 0.5s forwards;
+}
+
+.outro-highlight {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 10px 0;
+    letter-spacing: -2px;
+    background: linear-gradient(to right, #fff, #E50914);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: slideUp 2s ease-out 1s forwards;
+}
+
+.dpag-logo {
+    font-size: 8rem;
     font-weight: 900;
     color: #E50914;
-    letter-spacing: -10px;
-    animation: scaleOut 2s ease-in forwards;
+    letter-spacing: -5px;
+    margin-top: 40px;
+    opacity: 0;
+    animation: scaleOut 3s cubic-bezier(0.19, 1, 0.22, 1) 2s forwards;
+    text-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
 }
 
 /* Animations */
