@@ -40,7 +40,6 @@
 .row-slider {
     display: flex;
     gap: 10px;
-    /* padding removed here as it's moved to container to allow hover expansion without cut-off if possible, 
-     but with overflow:auto we need padding inside to not cut off shadows. */
-    padding: 10px;
+    padding: 10px 4% 10px 10px;
+    /* Right padding matches screen margin */
 }

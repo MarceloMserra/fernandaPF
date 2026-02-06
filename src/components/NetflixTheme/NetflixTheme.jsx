@@ -25,7 +25,7 @@ const NetflixTheme = ({ data }) => {
             />
             <div className="content-layer">
                 <Row title="Estatísticas do Mês" items={data.metrics} />
-                <DashboardSection />
+                <DashboardSection data={data} />
             </div>
         </div>
     );

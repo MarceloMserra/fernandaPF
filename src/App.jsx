@@ -12,7 +12,22 @@ const INITIAL_DATA = {
     { id: 2, title: "Repagamentos", value: "125", subtext: "Recorde histórico do time" },
     { id: 3, title: "DEAs Concluídos", value: "42", subtext: "Eficiência operacional" },
     { id: 4, title: "Novos Clientes", value: "310", subtext: "Crescimento de 5% M/M" },
-  ]
+  ],
+  charts: {
+    trend: [
+      { name: 'Sem 1', Repagamentos: 20, DEAs: 10, amt: 2400 },
+      { name: 'Sem 2', Repagamentos: 45, DEAs: 22, amt: 2210 },
+      { name: 'Sem 3', Repagamentos: 78, DEAs: 35, amt: 2290 },
+      { name: 'Sem 4', Repagamentos: 102, DEAs: 38, amt: 2000 },
+      { name: 'Sem 5', Repagamentos: 125, DEAs: 42, amt: 2181 },
+    ],
+    dist: [
+      { name: 'Em Andamento', value: 400 },
+      { name: 'Concluídos', value: 300 },
+      { name: 'Atrasados', value: 50 },
+      { name: 'Cancelados', value: 20 },
+    ]
+  }
 }
 
 function App() {
@@ -30,19 +45,19 @@ function App() {
   return (
     <div className="app-container">
       {isEditing ? (
-        <Editor 
-          data={data} 
+        <Editor
+          data={data}
           onSave={(newData) => {
             setData(newData);
             setIsEditing(false);
-          }} 
+          }}
           onCancel={() => setIsEditing(false)}
         />
       ) : (
         <NetflixTheme data={data} />
       )}
 
-      <button 
+      <button
         className="mode-toggle"
         onClick={() => setIsEditing(!isEditing)}
         style={{

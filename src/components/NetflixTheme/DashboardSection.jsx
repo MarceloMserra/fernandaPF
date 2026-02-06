@@ -1,24 +1,14 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend, Cell, PieChart, Pie } from 'recharts';
 import './DashboardSection.css';
 
-const dataTrend = [
-    { name: 'Sem 1', Repagamentos: 20, DEAs: 10, amt: 2400 },
-    { name: 'Sem 2', Repagamentos: 45, DEAs: 22, amt: 2210 },
-    { name: 'Sem 3', Repagamentos: 78, DEAs: 35, amt: 2290 },
-    { name: 'Sem 4', Repagamentos: 102, DEAs: 38, amt: 2000 },
-    { name: 'Sem 5', Repagamentos: 125, DEAs: 42, amt: 2181 },
-];
-
-const dataDist = [
-    { name: 'Em Andamento', value: 400 },
-    { name: 'Concluídos', value: 300 },
-    { name: 'Atrasados', value: 50 },
-    { name: 'Cancelados', value: 20 },
-];
-
 const COLORS = ['#E50914', '#ffffff', '#555555', '#222222'];
 
-const DashboardSection = () => {
+const DashboardSection = ({ data }) => {
+    // Fallback if no charts data is provided
+    if (!data || !data.charts) return null;
+
+    const { trend: dataTrend, dist: dataDist } = data.charts;
+
     return (
         <div className="dashboard-section">
             <h2 className="section-title">Análise de Performance - Season Recap</h2>
