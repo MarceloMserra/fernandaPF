@@ -9,6 +9,9 @@ const DashboardSection = ({ data }) => {
 
     const { trend: dataTrend, dist: dataDist } = data.charts;
 
+    // Double safety check
+    if (!dataTrend || !dataDist) return null;
+
     return (
         <div className="dashboard-section">
             <h2 className="section-title">Análise de Performance - Season Recap</h2>

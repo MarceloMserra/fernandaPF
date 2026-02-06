@@ -5,6 +5,7 @@ import Editor from './components/Editor/Editor'
 import { Edit2, Play } from 'lucide-react'
 
 const INITIAL_DATA = {
+  version: 2,
   title: "SUPER QUINTA",
   subtitle: "3ª Temporada - Episódio Março",
   metrics: [
