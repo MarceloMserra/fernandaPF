@@ -15,6 +15,15 @@
     /* Initially hidden to keep sharp corners */
 }
 
+/* Intelligent Hover Scaling */
+.card:first-child {
+    transform-origin: left center;
+}
+
+.card:last-child {
+    transform-origin: right center;
+}
+
 /* Hover State - The "Pop" */
 .card:hover {
     transform: scale(1.4) translateY(-10px);

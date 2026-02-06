@@ -1,7 +1,7 @@
 import { Play, Info } from 'lucide-react';
 import './Hero.css';
 
-const Hero = ({ title, subtitle }) => {
+const Hero = ({ title, subtitle, onPlay }) => {
     return (
         <div className="hero">
             <div className="hero-background"></div>
@@ -19,7 +19,7 @@ const Hero = ({ title, subtitle }) => {
                     Nesta edição especial, mergulhe nos números que definem o nosso sucesso.
                 </p>
                 <div className="hero-buttons">
-                    <button className="btn btn-play">
+                    <button className="btn btn-play" onClick={onPlay}>
                         <Play fill="black" size={24} /> Play
                     </button>
                     <button className="btn btn-info">
